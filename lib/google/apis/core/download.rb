@@ -99,9 +99,8 @@ module Google
             @offset += next_chunk.bytesize
           end
 
-         @download_io.flush if @download_io.respond_to?(:flush)
-
           if @close_io_on_finish
+            @download_io.flush if @download_io.respond_to?(:flush)
             result = nil
           else
             result = @download_io
